@@ -1,0 +1,54 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore TypeScript cache
+*.tsbuildinfo
+
+# Ignore log files
+*.log
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+
+# Ignore any generated files
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore parcel cache
+.cache/
+.parcel-cache/
+
+# Ignore eslint cache
+.eslintcache
+
+# Ignore coverage files
+coverage/
+*.lcov
+*.lcov.info
+
+# Ignore storybook build
+storybook-static/
+
+# Ignore .editorconfig backup
+*.editorconfig.backup
