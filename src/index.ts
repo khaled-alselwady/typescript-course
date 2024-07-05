@@ -1,5 +1,7 @@
-let arr: (number | boolean[] | (string | (string | number)[])[])[];
+function reportErrors(username: string, age: number) {
+  let rank = "Professor";
+  return `Username: ${username}`;
+  console.log("We Will Not Reach Here");
+}
 
-arr = [1, 2, 3, [true, false], ['A', [5, 'B']]];
-
-console.log(arr);
+console.log(reportErrors("Elzero", 40));
