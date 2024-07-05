@@ -1,8 +1,8 @@
-let nothing;
-let theName: string = "Elzero";
-function showMyDetails(a = "", b = "", c) {
-  return `${a}${b}${c}`;
+function showMsg(user?: string, age?: (number | string), country?: string) {
+  return `${user}${age}${country}`;
 }
 
-// Replace ???? With The Available Variables As Argument To Get The Result
-console.log(showMyDetails(nothing, nothing, theName)); // Elzero
+console.log(showMsg());
+console.log(showMsg("Elzero"));
+console.log(showMsg("Elzero", 40));
+console.log(showMsg("Elzero", "40", "Egypt"));
