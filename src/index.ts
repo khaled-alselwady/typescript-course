@@ -1,7 +1,5 @@
-function printInfo(valueOne: (number | string), valueTwo: (number | string)): string {
-  return `Value One Is ${valueOne}, Value Two Is ${valueTwo}`;
-}
+let arr: (number | boolean[] | (string | (string | number)[])[])[];
 
-console.log(printInfo(10, 20)); // Value One Is 10, Value Two Is 20
-console.log(printInfo("10", "20")); // Value One Is "10", Value Two Is "20"
-//console.log(printInfo(true, [1, 2, 3])); // We Don't Need This To Work
+arr = [1, 2, 3, [true, false], ['A', [5, 'B']]];
+
+console.log(arr);
