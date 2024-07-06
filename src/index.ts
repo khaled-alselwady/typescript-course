@@ -1,18 +1,19 @@
-enum enTrueFalse {
-  True = "True",
-  False = "False",
+enum enYesNo {
+  Yes = "Yes",
+  No = "No",
 }
-type Compare = enTrueFalse | "Error";
 
-function yesOrNo(val: number | string): Compare {
-  if (typeof val !== "number") {
+type custom = enYesNo | "Error";
+
+function isHeOld(age: number | string): custom | number {
+  if (typeof age !== "number") {
     return "Error";
   }
 
-  return val > 10 ? enTrueFalse.True : enTrueFalse.False;
+  return age > 40 ? enYesNo.Yes : enYesNo.No;
 }
 
 // Do Not Edit Here
-console.log(yesOrNo("100")); // Error
-console.log(yesOrNo(30)); // True
-console.log(yesOrNo(8)); // False
+console.log(isHeOld("100")); // Error
+console.log(isHeOld(45)); // "Yes"
+console.log(isHeOld(30)); // "No"
