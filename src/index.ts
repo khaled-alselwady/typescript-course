@@ -1,14 +1,15 @@
-let post: readonly [number, string, boolean];
-
-// post = [100, 200, "Title"]; // Error
-// post = ["Title", 100, true]; // Error
-post = [100, "Title", true]; // Good
-
-// post.push("Elzero"); // Error => Cant Add
-
-// Create Destructuring Here
-const [id, title, state] = post;
-// Do Not Edit Here
-console.log(id); // 100
-console.log(title); // "Title"
-console.log(state); // true
+// Create Enums + Function Here
+function getInsaneScore(num: number) {
+  return num - Game.Hard;
+}
+enum Game {
+  Easy = 100,
+  Medium = Easy - 20,
+  Hard = Medium - Easy / 2,
+  Insane = getInsaneScore(50),
+}
+// Output
+console.log(Game.Easy); // 100
+console.log(Game.Medium); // 80
+console.log(Game.Hard); // 30
+console.log(Game.Insane); // 20
