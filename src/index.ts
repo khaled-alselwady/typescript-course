@@ -1,19 +1,14 @@
-enum enYesNo {
-  Yes = "Yes",
-  No = "No",
-}
+let post: readonly [number, string, boolean];
 
-type custom = enYesNo | "Error";
+// post = [100, 200, "Title"]; // Error
+// post = ["Title", 100, true]; // Error
+post = [100, "Title", true]; // Good
 
-function isHeOld(age: number | string): custom | number {
-  if (typeof age !== "number") {
-    return "Error";
-  }
+// post.push("Elzero"); // Error => Cant Add
 
-  return age > 40 ? enYesNo.Yes : enYesNo.No;
-}
-
+// Create Destructuring Here
+const [id, title, state] = post;
 // Do Not Edit Here
-console.log(isHeOld("100")); // Error
-console.log(isHeOld(45)); // "Yes"
-console.log(isHeOld(30)); // "No"
+console.log(id); // 100
+console.log(title); // "Title"
+console.log(state); // true
