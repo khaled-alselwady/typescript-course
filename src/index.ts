@@ -1,23 +1,18 @@
-// Write Your Code Here
-type Info = {
-  theName: string;
-  theAge: number;
-};
+enum enTrueFalse {
+  True = "True",
+  False = "False",
+}
+type Compare = enTrueFalse | "Error";
 
-type Full = Info & {
-  country: string;
-};
+function yesOrNo(val: number | string): Compare {
+  if (typeof val !== "number") {
+    return "Error";
+  }
+
+  return val > 10 ? enTrueFalse.True : enTrueFalse.False;
+}
 
 // Do Not Edit Here
-function showInfo(data: Info) {
-  console.log(`The Name Is ${data.theName}`);
-  console.log(`The Age Is ${data.theAge}`);
-}
-console.log(showInfo({ theName: "Elzero", theAge: 40 }));
-
-function showFullInfo(data: Full) {
-  console.log(`The Name Is ${data.theName}`);
-  console.log(`The Age Is ${data.theAge}`);
-  console.log(`The Country Is ${data.country}`);
-}
-console.log(showFullInfo({ theName: "Elzero", theAge: 4, country: "Egypt" }));
+console.log(yesOrNo("100")); // Error
+console.log(yesOrNo(30)); // True
+console.log(yesOrNo(8)); // False
