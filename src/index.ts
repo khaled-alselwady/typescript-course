@@ -1,24 +1,24 @@
-// Create Interface Here
-interface Client {
-  id: number;
-  username: string;
-  active: boolean;
-  discount: number;
-  // getPrice: (price: number) => number;
-  getPrice(price: number): number;
-}
 // Do Not Edit The Code Below
-let client: Client = {
-  id: 100,
-  username: "Elzero",
-  active: true,
-  discount: 10,
-  getPrice(price: number) {
-    return price - this.discount;
-  },
-};
+interface Man {
+  title: string;
+  weight: number;
+  age: number;
+}
 
-console.log(`Client Id Is ${client.id}`);
-console.log(`Client Name Is ${client.username}`);
-console.log(`Client Has Discount ${client.discount}`);
-console.log(`Client Product After Discount Is ${client.getPrice(200)}`);
+interface Bird {
+  canFly: boolean;
+}
+
+interface Superman extends Man, Bird {
+  bodyType: string;
+  origin: string;
+}
+
+let creature: Superman = {
+  title: "Superman",
+  weight: 100,
+  age: 500,
+  canFly: true,
+  bodyType: "Iron",
+  origin: "Krypton",
+};
