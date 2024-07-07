@@ -1,22 +1,26 @@
-const user: {
+// Edit The Interface To Fix The Problems
+interface Member {
+  id: number | string;
   username: string;
-  age: number | string;
-  website?: string;
-  skills: {
-    frontEnd: string[];
-    backEnd: (string | number)[];
-  };
-} = {
+  country: string;
+  state: boolean;
+  // getName: () => string;
+  getName(): string;
+}
+
+// Do Not Edit The Code Below
+let user: Member = {
+  // Property 'country' is missing in type
+  id: 100,
   username: "Elzero",
-  age: 40,
-  website: "Elzero.org",
-  skills: {
-    frontEnd: ["HTML", "CSS", "JS"],
-    backEnd: ["PHP", "Python"],
+  country: "Amman",
+  state: true,
+  getName() {
+    // 'getName' does not exist in type 'Member'
+    return this.username;
   },
 };
 
-// We Need To Remove Error From This Edits
-user.username = "Osama";
-user.age = "40";
-user.skills.backEnd.push(100);
+user.id = 200;
+user.id = "200"; // Type 'string' is not assignable to type 'number'
+user.state = false; // Cannot assign to 'state' because it is a read-only property
