@@ -1,33 +1,60 @@
-interface Play {
-  id: number;
-  title: string;
-  level: number | string;
-  logIn(): void;
-  logOut(msg: string): void;
+// Do Not Edit
+type numandstring = number | string;
+
+abstract class Game {
+  constructor(public title: string, public price: numandstring) {}
+  abstract getLocation(): string;
+  abstract getDiscount(): string;
 }
 
-class Player implements Play {
+// Start Edit And Fix
+class RPG extends Game {
+  constructor(title: string, price: numandstring, public rate: number) {
+    super(title, price);
+  }
+
+  override getLocation(): string {
+    return "Location";
+  }
+
+  override getDiscount(): string {
+    return "Discount";
+  }
+}
+
+class Action extends Game {
   constructor(
-    public id: number,
-    public title: string,
-    public level: number | string
-  ) {}
-
-  logIn() {
-    console.log("Logged In");
+    title: string,
+    price: numandstring,
+    public rate: number,
+    public company: string
+  ) {
+    super(title, price);
   }
 
-  logOut(msg: string) {
-    console.log(`Logged Out, ${msg}`);
+  override getLocation(): string {
+    return "Location";
+  }
+
+  override getDiscount(): string {
+    return "Discount";
   }
 }
+// End Edit And Fix
 
-// Create Your Class Here
+// Do Not Edit
+let gameOne = new RPG("Ys", 100, 10);
+let gameTwo = new Action("Uncharted", 90, 15, "Sony");
 
-let player1 = new Player(100, "Elzero", 95);
+console.log(gameOne.title); // "Ys"
+console.log(gameOne.price); // 100
+console.log(gameOne.rate); // 10
+console.log(gameOne.getDiscount()); // "Discount"
+console.log(gameOne.getLocation()); // "Location"
 
-console.log(player1.id); // 100
-console.log(player1.title); // "Elzero"
-console.log(player1.level); // 95
-player1.logIn(); // Logged In
-player1.logOut("Good Bye"); // Logged Out, Good Bye
+console.log(gameTwo.title); // "Uncharted"
+console.log(gameTwo.price); // 90
+console.log(gameTwo.rate); // 15
+console.log(gameTwo.company); // "Sony"
+console.log(gameTwo.getDiscount()); // "Discount"
+console.log(gameTwo.getLocation()); // "Location"
