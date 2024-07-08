@@ -1,60 +1,18 @@
-// Do Not Edit
-type numandstring = number | string;
+// Write Function Code Here
+function showTypes<T = void, S = void, W = void>(
+  val1?: T,
+  val2?: S,
+  val3?: W
+): string {
+  let result = "";
+  result = typeof val1 === "string" ? `${val1}` : "Nothing";
+  result += typeof val2 === "number" ? ` - ${val2}` : " - Nothing";
+  result += typeof val3 === "boolean" ? ` - ${val3}` : " - Nothing";
 
-abstract class Game {
-  constructor(public title: string, public price: numandstring) {}
-  abstract getLocation(): string;
-  abstract getDiscount(): string;
+  return result;
 }
-
-// Start Edit And Fix
-class RPG extends Game {
-  constructor(title: string, price: numandstring, public rate: number) {
-    super(title, price);
-  }
-
-  override getLocation(): string {
-    return "Location";
-  }
-
-  override getDiscount(): string {
-    return "Discount";
-  }
-}
-
-class Action extends Game {
-  constructor(
-    title: string,
-    price: numandstring,
-    public rate: number,
-    public company: string
-  ) {
-    super(title, price);
-  }
-
-  override getLocation(): string {
-    return "Location";
-  }
-
-  override getDiscount(): string {
-    return "Discount";
-  }
-}
-// End Edit And Fix
-
-// Do Not Edit
-let gameOne = new RPG("Ys", 100, 10);
-let gameTwo = new Action("Uncharted", 90, 15, "Sony");
-
-console.log(gameOne.title); // "Ys"
-console.log(gameOne.price); // 100
-console.log(gameOne.rate); // 10
-console.log(gameOne.getDiscount()); // "Discount"
-console.log(gameOne.getLocation()); // "Location"
-
-console.log(gameTwo.title); // "Uncharted"
-console.log(gameTwo.price); // 90
-console.log(gameTwo.rate); // 15
-console.log(gameTwo.company); // "Sony"
-console.log(gameTwo.getDiscount()); // "Discount"
-console.log(gameTwo.getLocation()); // "Location"
+// Do Not Edit Here
+console.log(showTypes()); // Nothing - Nothing - Nothing
+console.log(showTypes<string>("String")); // String - Nothing - Nothing
+console.log(showTypes<string, number>("String", 100)); // String - 100 - Nothing
+console.log(showTypes<string, number, boolean>("String", 100, true)); // String - 100 - true
